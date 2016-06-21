@@ -23,6 +23,18 @@ Or install it yourself as:
 
     $ gem install chartmogul
 
+## Configure
+
+Once you have your API keys from ChartMogul, then you can add an initializer
+to set your API keys
+
+```ruby
+Chartmogul.configure do |config|
+  config.account_token = "YOUR_ACCOUNT_TOKEN"
+  config.secret_key = "YOUR_SECRET_KEY"
+end
+```
+
 ## Usage
 
 
