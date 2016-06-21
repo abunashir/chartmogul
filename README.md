@@ -1,20 +1,23 @@
 # Chartmogul
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/chartmogul`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build
+Status](https://travis-ci.org/abunashir/chartmogul.svg?branch=master)](https://travis-ci.org/abunashir/chartmogul)
+[![Code
+Climate](https://codeclimate.com/github/abunashir/chartmogul/badges/gpa.svg)](https://codeclimate.com/github/abunashir/chartmogul)
 
-TODO: Delete this and the text above, and describe your gem
+Chartmogul client library in Ruby
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'chartmogul'
+gem "chartmogul", github: "abunashir/chartmogul"
 ```
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -22,7 +25,6 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
 
 ## Development
 
@@ -38,4 +40,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
