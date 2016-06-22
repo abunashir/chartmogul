@@ -24,4 +24,17 @@ describe Chartmogul::Import::DataSource do
       end
     end
   end
+
+  describe ".delete" do
+    context "when valid data source uuid provided" do
+      it "delete that data source" do
+        data_source_uuid = "ds_ade45e52-47a4-231a-1ed2-eb6b9e541213"
+        stub_data_source_delete_api(uuid: data_source_uuid)
+
+        expect do
+          Chartmogul::Import::DataSource.delete(uuid: data_source_uuid)
+        end.not_to raise_error
+      end
+    end
+  end
 end

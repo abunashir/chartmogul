@@ -19,6 +19,12 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_data_source_delete_api(uuid:)
+    stub_api_response(
+      :delete, "import/data_sources/#{uuid}", filename: "empty", status: 204
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
