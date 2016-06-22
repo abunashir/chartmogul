@@ -35,7 +35,11 @@ Chartmogul.configure do |config|
 end
 ```
 
-## Usage
+## Import API
+
+The Import API allows any subscription business (or subscription billing
+platform) to connect with ChartMogul and leverage the powerful analytics that
+Chartmogul deliver.
 
 ### Data Sources
 
@@ -43,13 +47,20 @@ Data sources represent sources of billing data for your ChartMogul account. If
 you bill your customers using different systems, then you would want to create
 a separate data_source object for each system.
 
-
 #### Create a Data Source
 
-You can create a new data source as simple as
+Creates a data source object for importing data into ChartMogul.
 
 ```ruby
 Chartmogul::Import::DataSource.create(name: "unique_data_source_name")
+```
+
+#### List Data Sources
+
+Lists all data source objects that you have created using the Import API.
+
+```ruby
+Chartmogul::Import::DataSource.list
 ```
 
 

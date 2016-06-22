@@ -13,6 +13,12 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_data_source_list_api
+    stub_api_response(
+      :get, "import/data_sources", filename: "datasource_list", status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
