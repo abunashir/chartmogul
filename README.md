@@ -37,6 +37,21 @@ end
 
 ## Usage
 
+### Data Sources
+
+Data sources represent sources of billing data for your ChartMogul account. If
+you bill your customers using different systems, then you would want to create
+a separate data_source object for each system.
+
+
+#### Create a Data Source
+
+You can create a new data source as simple as
+
+```ruby
+Chartmogul::Import::DataSource.create(name: "unique_data_source_name")
+```
+
 
 ## Development
 
