@@ -1,26 +1,44 @@
 module FakeChartmogulApi
   def stub_authentication_api
-    stub_api_response("ping", :get, filename: "authentication", status: 200)
+    stub_api_response(:get, "ping", filename: "authentication", status: 200)
+  end
+
+  def stub_data_source_create_api(data_source)
+    stub_api_response(
+      :post,
+      "import/data_sources",
+      data: data_source,
+      filename: "datasource_created",
+      status: 201
+    )
   end
 
   private
 
-  def stub_api_response(end_point, method, filename:, status: 200)
-    stub_request(method, api_path(end_point)).
-      with(headers: api_request_header).
+  def stub_api_response(method, end_point, filename:, status: 200, data: nil)
+    stub_request(method, api_end_point(end_point)).
+      with(api_request_headers(data: data)).
       to_return(response_with(filename: filename, status: status))
   end
 
-  def api_path(end_point)
+  def api_end_point(end_point)
     [Chartmogul.configuration.api_host, end_point].join("/")
   end
 
-  def api_request_header
+  def api_request_headers(data:)
+    Hash.new.tap do |request_headers|
+      request_headers[:headers] = authentication_header
+
+      unless data.nil?
+        request_headers[:body] = data.to_json
+      end
+    end
+  end
+
+  def authentication_header
     {
-      "Accept" => "*/*; q=0.5, application/xml",
-      "Accept-Encoding" => "gzip, deflate",
       "Authorization" => "Basic QUNDT1VOVF9UT0tFTjpBQ0NPVU5UX1NFQ1JFVF9LRVk=",
-      "User-Agent" => "Ruby"
+      "Content-Type" => "application/json"
     }
   end
 

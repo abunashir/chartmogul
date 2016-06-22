@@ -8,9 +8,11 @@ RSpec.configure do |config|
   config.before :suite do
     config.include FakeChartmogulApi
 
-    Chartmogul.configure do |chartmogul_config|
-      chartmogul_config.account_token = "ACCOUNT_TOKEN"
-      chartmogul_config.secret_key = "ACCOUNT_SECRET_KEY"
+    config.before :all do
+      Chartmogul.configure do |chartmogul_config|
+        chartmogul_config.account_token = "ACCOUNT_TOKEN"
+        chartmogul_config.secret_key = "ACCOUNT_SECRET_KEY"
+      end
     end
   end
 end
