@@ -8,6 +8,10 @@ module Chartmogul
       def self.create(name:)
         Chartmogul.post_resource "import/data_sources", name: name
       end
+
+      def self.delete(uuid:)
+        Chartmogul.delete_resource ["import/data_sources", uuid].join("/")
+      end
     end
   end
 end

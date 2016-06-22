@@ -1,11 +1,11 @@
-# Chartmogul
+# ChartMogul
 
 [![Build
 Status](https://travis-ci.org/abunashir/chartmogul.svg?branch=master)](https://travis-ci.org/abunashir/chartmogul)
 [![Code
 Climate](https://codeclimate.com/github/abunashir/chartmogul/badges/gpa.svg)](https://codeclimate.com/github/abunashir/chartmogul)
 
-Chartmogul client library in Ruby
+ChartMogul client library in Ruby
 
 ## Installation
 
@@ -45,7 +45,7 @@ Chartmogul deliver.
 
 Data sources represent sources of billing data for your ChartMogul account. If
 you bill your customers using different systems, then you would want to create
-a separate data_source object for each system.
+a separate data source object for each system.
 
 #### Create a Data Source
 
@@ -63,6 +63,14 @@ Lists all data source objects that you have created using the Import API.
 Chartmogul::Import::DataSource.list
 ```
 
+#### Delete a Data Source
+
+Delete the specified data source object that was created using the Import
+API, and all its associated data.
+
+```ruby
+Chartmogul::Import::DataSource.delete(uuid: "data_source_uuid")
+```
 
 ## Development
 
