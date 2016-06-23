@@ -74,9 +74,53 @@ Chartmogul::Import::DataSource.delete(uuid: "data_source_uuid")
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+We are following Sandi Metz's Rules for this application, you can read the
+[description of the rules here]
+(http://robots.thoughtbot.com/post/50655960596/sandi-metz-rules-for-developers). All new code should follow these rules. If you make changes in a pre-existing
+file that violates these rules you should fix the violations as part of
+your contribution.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+### Setup
+
+* Clone the repository.
+
+```sh
+git clone https://github.com/abunashir/chartmogul.git
+```
+
+* Setup your environment.
+
+```sh
+bin/setup
+```
+
+* Run the test suite
+
+```sh
+rake
+```
+
+### Playbox
+
+* Setup API keys.
+
+```sh
+cp .sample.pryrc .pryrc
+vim .pryrc
+```
+
+* Start your console.
+
+```sh
+bin/console
+```
+
+* Start playing with it.
+
+```sh
+Chartmogul::Import::DataSource.list
+```
 
 ## Contributing
 
