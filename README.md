@@ -72,6 +72,30 @@ API, and all its associated data.
 Chartmogul::Import::DataSource.delete(uuid: "data_source_uuid")
 ```
 
+### Customers
+
+This object represents one of your customers in ChartMogul. You can create
+customer objects for both paying and non-paying customers (e.g. leads, free
+trials, freemium users, etc.)
+
+#### Import a Customer
+
+Create a `customer` object in ChartMogul under the specified `data_source`.
+
+```ruby
+Chartmogul::Import::Customer.create(
+  name: "Adam Smith",
+  external_id: "customer_001",
+  data_source_uuid: "ds_uuid_001",
+  email: "adam@smith.com",
+  city: "New York",
+  state: "NY",
+  zip: "ABC123",
+  country: "US",
+  company: "ChartMogul"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

@@ -1,0 +1,12 @@
+{
+  "uuid": "cus_f466e33d",
+  "data_source_uuid": "ds_uuid_001",
+  "external_id": "customer_001",
+  "name": "Adam Smith",
+  "company": "ChartMogul",
+  "email": "adam@smith.com",
+  "city": "New York",
+  "state": "NY",
+  "country": "US",
+  "zip": "ABC123"
+}

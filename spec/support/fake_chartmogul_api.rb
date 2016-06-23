@@ -25,6 +25,16 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_customer_create_api(customer_attributes)
+    stub_api_response(
+      :post,
+      "import/customers",
+      data: customer_attributes,
+      filename: "customer_created",
+      status: 201
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
