@@ -16,6 +16,10 @@ module Chartmogul
       def self.list(options = {})
         Chartmogul.get_resource "import/customers", options
       end
+
+      def self.delete(uuid:)
+        Chartmogul.delete_resource ["import/customers", uuid].join("/")
+      end
     end
   end
 end

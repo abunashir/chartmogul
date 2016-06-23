@@ -47,8 +47,6 @@ module Chartmogul
   end
 
   def self.delete_resource(end_point)
-    Chartmogul::Response.parse_json(
-      Client.new(end_point).delete
-    )
+    Client.new(end_point).delete
   end
 end
