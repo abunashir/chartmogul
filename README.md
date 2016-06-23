@@ -106,6 +106,15 @@ Chartmogul::Import::Customer.list(listing_options = {})
 
 Please checkout [customer listing doc] for supported `listing_options`.
 
+#### Delete a Customer
+
+Delete the specified `customer` object that was created using the Import API,
+and all its associated data.
+
+```ruby
+Chartmogul::Import::Customer.delete(uuid: "customer_uuid")
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

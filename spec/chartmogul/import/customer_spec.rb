@@ -35,4 +35,15 @@ describe Chartmogul::Import::Customer do
       expect(customers.customers.first.uuid).not_to be_nil
     end
   end
+
+  describe ".delete" do
+    it "delete a specifeid customer" do
+      customer_uuid = "customer_001_uuid"
+      stub_customer_delete_api(uuid: customer_uuid)
+
+      expect do
+        Chartmogul::Import::Customer.delete(uuid: customer_uuid)
+      end.not_to raise_error
+    end
+  end
 end
