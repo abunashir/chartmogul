@@ -96,6 +96,16 @@ Chartmogul::Import::Customer.create(
 )
 ```
 
+#### List Customers
+
+Retrieve a list of customer objects created using the Import API.
+
+```ruby
+Chartmogul::Import::Customer.list(listing_options = {})
+```
+
+Please checkout [customer listing doc] for supported `listing_options`.
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
@@ -154,3 +164,5 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+[customer listing doc]: https://dev.chartmogul.com/docs/list-all-imported-customers

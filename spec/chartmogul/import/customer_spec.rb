@@ -23,4 +23,16 @@ describe Chartmogul::Import::Customer do
       expect(customer.company).to eq(customer_attributes[:company])
     end
   end
+
+  describe ".list" do
+    it "lists imported customers" do
+      listing_options = { page: 1, per_page: 3 }
+      stub_customer_list_api(listing_options)
+      customers = Chartmogul::Import::Customer.list(listing_options)
+
+      expect(customers.current_page).to eq(1)
+      expect(customers.customers.count).to eq(3)
+      expect(customers.customers.first.uuid).not_to be_nil
+    end
+  end
 end
