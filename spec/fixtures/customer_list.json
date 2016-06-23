@@ -1,0 +1,43 @@
+{
+  "customers":[
+    {
+      "uuid": "cus_f466e33d-ff2b-4a11-8f85-417eb02157a7",
+      "data_source_uuid": "ds_fef05d54-47b4-431b-aed2-eb6b9e545430",
+      "external_id": "cus_0001",
+      "name": "Adam Smith",
+      "email": "adam@smith.com",
+      "company": "",
+      "country": "US",
+      "state": "",
+      "city": "New York",
+      "zip": ""
+    },
+    {
+      "uuid": "cus_ee325d54-7ab4-421b-cdb2-eb6b9e546034",
+      "data_source_uuid": "ds_fef05d54-47b4-431b-aed2-eb6b9e545430",
+      "external_id": "cus_0002",
+      "name": "Alice",
+      "email": "alice@acme.com",
+      "company": "Acme inc.",
+      "country": "",
+      "state": "",
+      "city": "",
+      "zip": ""
+    },
+    {
+      "uuid": "cus_ee325d54-7ab4-421b-cdb2",
+      "data_source_uuid": "ds_fef05d54-47b4-431b-aed2-eb6b9e545430",
+      "external_id": "cus_0003",
+      "name": "John",
+      "email": "john@doe.com",
+      "company": "John Inc.",
+      "country": "",
+      "state": "",
+      "city": "",
+      "zip": ""
+    }
+
+  ],
+  "current_page": 1,
+  "total_pages": 5
+}

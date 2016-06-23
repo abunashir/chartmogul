@@ -35,6 +35,17 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_customer_list_api(options)
+    options = options.map { |key, value| [key, value].join("=") }.join("&")
+
+    stub_api_response(
+      :get,
+      ["import/customers", options].join("?"),
+      filename: "customer_list",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)

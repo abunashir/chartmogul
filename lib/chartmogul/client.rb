@@ -12,7 +12,7 @@ module Chartmogul
     end
 
     def get
-      resources[end_point].get content_type: :json
+      resources[end_point].get params: attributes, content_type: :json
     end
 
     def post
@@ -34,9 +34,9 @@ module Chartmogul
     end
   end
 
-  def self.get_resource(end_point)
+  def self.get_resource(end_point, attributes = {})
     Chartmogul::Response.parse_json(
-      Client.new(end_point).get
+      Client.new(end_point, attributes).get
     )
   end
 

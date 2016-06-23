@@ -12,6 +12,10 @@ module Chartmogul
           "import/customers", required_parameters.merge(args)
         )
       end
+
+      def self.list(options = {})
+        Chartmogul.get_resource "import/customers", options
+      end
     end
   end
 end
