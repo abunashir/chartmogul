@@ -1,9 +1,6 @@
 require "chartmogul/version"
 require "chartmogul/client"
-require "chartmogul/import/base"
-require "chartmogul/import/data_source"
-require "chartmogul/import/customer"
-require "chartmogul/import/plan"
+require "chartmogul/import"
 
 module Chartmogul
 end
