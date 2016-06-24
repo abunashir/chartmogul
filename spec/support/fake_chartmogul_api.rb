@@ -52,6 +52,16 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_plan_create_api(plan_attributes)
+    stub_api_response(
+      :post,
+      "import/plans",
+      data: plan_attributes,
+      filename: "plan_created",
+      status: 201
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)

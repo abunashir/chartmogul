@@ -1,0 +1,8 @@
+{
+  "uuid": "pl_eed05d54-75b4-431b",
+  "data_source_uuid": "ds_uuid_001",
+  "name": "Bronze Plan",
+  "interval_count": 1,
+  "interval_unit": "month",
+  "external_id": "plan_0001"
+}
