@@ -135,6 +135,15 @@ Chartmogul::Import::Plan.create(
 )
 ```
 
+#### List Plans
+
+Retrieve a list of plan objects created using the Import API. Checkout
+[plan listing doc] for supported `listing_options`.
+
+```ruby
+Chartmogul::Import::Plan.list(listing_options = {})
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
@@ -195,3 +204,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 [customer listing doc]: https://dev.chartmogul.com/docs/list-all-imported-customers
+[plan listing doc]: https://dev.chartmogul.com/docs/list-all-imported-plans

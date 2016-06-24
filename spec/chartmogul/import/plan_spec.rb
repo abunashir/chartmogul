@@ -19,4 +19,16 @@ describe Chartmogul::Import::Plan do
       expect(plan.data_source_uuid).to eq(plan_attributes[:data_source_uuid])
     end
   end
+
+  describe ".list" do
+    it "lists all the plans" do
+      listing_options = { page: 1, per_page: 3 }
+      stub_plan_list_api(listing_options)
+      plans = Chartmogul::Import::Plan.list(listing_options)
+
+      expect(plans.current_page).to eq(1)
+      expect(plans.plans.count).to eq(3)
+      expect(plans.plans.first.uuid).not_to be_nil
+    end
+  end
 end

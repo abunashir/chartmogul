@@ -1,0 +1,30 @@
+{
+  "plans":[
+    {
+      "uuid": "pl_eed05d54-75b4",
+      "data_source_uuid": "ds_fef05d54",
+      "name": "Bronze Plan",
+      "interval_count": 1,
+      "interval_unit": "month",
+      "external_id": "plan_0001"
+    },
+    {
+      "uuid": "pl_cdb35d54-75b4",
+      "data_source_uuid": "ds_uuid_001",
+      "name": "Silver Plan",
+      "interval_count": 6,
+      "interval_unit": "month",
+      "external_id": "plan_0002"
+    },
+    {
+      "uuid": "pl_ab225d54-7ab4-421b",
+      "data_source_uuid": "ds_uuid_001",
+      "name": "Gold Plan",
+      "interval_count": 1,
+      "interval_unit": "year",
+      "external_id": "plan_0003"
+    }
+  ],
+  "current_page": 1,
+  "total_pages": 2
+}

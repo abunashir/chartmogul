@@ -36,11 +36,9 @@ module FakeChartmogulApi
   end
 
   def stub_customer_list_api(options)
-    options = options.map { |key, value| [key, value].join("=") }.join("&")
-
     stub_api_response(
       :get,
-      ["import/customers", options].join("?"),
+      ["import/customers", resource_params(options)].join("?"),
       filename: "customer_list",
       status: 200
     )
@@ -55,10 +53,19 @@ module FakeChartmogulApi
   def stub_plan_create_api(plan_attributes)
     stub_api_response(
       :post,
-      "import/plans",
+      plan_end_point,
       data: plan_attributes,
       filename: "plan_created",
       status: 201
+    )
+  end
+
+  def stub_plan_list_api(options)
+    stub_api_response(
+      :get,
+      [plan_end_point, resource_params(options)].join("?"),
+      filename: "plan_list",
+      status: 200
     )
   end
 
@@ -68,6 +75,14 @@ module FakeChartmogulApi
     stub_request(method, api_end_point(end_point)).
       with(api_request_headers(data: data)).
       to_return(response_with(filename: filename, status: status))
+  end
+
+  def resource_params(options)
+    options.map { |key, value| [key, value].join("=") }.join("&")
+  end
+
+  def plan_end_point
+    "import/plans"
   end
 
   def api_end_point(end_point)
