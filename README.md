@@ -115,6 +115,26 @@ and all its associated data.
 Chartmogul::Import::Customer.delete(uuid: "customer_uuid")
 ```
 
+### Plans
+
+This object represents a subscription billing plan for products or services that
+you offer your customers. For example, you might have a $50 monthly plan with a
+set of features, and a $500 annual plan.
+
+#### Import a Plan
+
+Create a `plan` object in ChartMogul under the specified `data_source`.
+
+```ruby
+Chartmogul::Import::Plan.create(
+  data_source_uuid: "ds_uuid_001",
+  name: "Bronze Plan",
+  interval_count: 1,
+  interval_unit: "month",
+  external_id: "plan_001"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
