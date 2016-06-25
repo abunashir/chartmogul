@@ -144,6 +144,68 @@ Retrieve a list of plan objects created using the Import API. Checkout
 Chartmogul::Import::Plan.list(listing_options = {})
 ```
 
+### Invoices
+
+Invoices are crucial objects in ChartMogul. We auto-generate subscriptions
+and metrics from the information contained in these objects. They contain
+information about the customer who was billed, the items that were included,
+and the transactions related to the invoice.
+
+#### Import Invoices
+
+Create invoices for a given customer. ChartMogul auto-generates subscription
+from these invoices. Ref: [Create Invoice API]
+
+```ruby
+# Creating a single invoice for a specified customer
+#
+# If you want to create multiple invoices in one request, then pass an
+# Array as `invoice: [invoice_attributes, another_invoice_attributes]`
+
+Chartmogul::Import::Invoice.create(
+  uuid: customer_uuid, invoice: invoice_attributes
+)
+
+# Pay close attention to the construction of this object.
+#
+# Invoice attributes
+
+invoice_attributes = {
+  external_id: "invoice_001",
+  currency: "USD",
+  date: "2015-11-01 00:00:00",
+  due_date: "2015-11-15 00:00:00",
+  line_items: [line_item_attributes],
+  transactions: [transaction_attributes]
+}
+
+# Line Items
+# Invoices must contain an array of one or more line items that were
+# billed. Line item objects represent the kind of product or service
+# being billed, and relevant details about them.
+
+line_item_attributes = {
+  type: "one_time",
+  description: "Setup Fees",
+  amount_in_cents: 2500,
+  quantity: 1,
+  discount_code: "PSO86",
+  discount_amount_in_cents: 500,
+  tax_amount_in_cents: 450
+}
+
+# Transactions
+# Invoices usually always contain an array of one or more transactions
+# Transaction objects represent charge or refund attempts related to
+# the invoice
+
+transaction_attributes = {
+  date: "2015-11-05 00:14:23",
+  type: "payment",
+  result: "successful"
+}
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
@@ -205,3 +267,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 [customer listing doc]: https://dev.chartmogul.com/docs/list-all-imported-customers
 [plan listing doc]: https://dev.chartmogul.com/docs/list-all-imported-plans
+[Create Invoice API]: https://dev.chartmogul.com/docs/import-customers-invoices

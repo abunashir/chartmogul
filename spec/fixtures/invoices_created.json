@@ -1,0 +1,33 @@
+{
+  "invoices": [
+    {
+      "uuid": "inv_565c73b2",
+      "external_id": "invoice_001",
+      "date": "2015-11-01T00:00:00.000Z",
+      "due_date": "2015-11-15T00:00:00.000Z",
+      "currency": "USD",
+      "line_items": [
+        {
+          "uuid": "li_0cc8c112-beac-416d-af11-f35744ca4e83",
+          "external_id": null,
+          "type": "one_time",
+          "description": "Setup Fees",
+          "amount_in_cents": 2500,
+          "quantity": 1,
+          "discount_code": "PSO86",
+          "discount_amount_in_cents": 500,
+          "tax_amount_in_cents": 450
+        }
+      ],
+      "transactions": [
+        {
+          "uuid": "tr_879d560a-1bec-41bb-986e",
+          "external_id": null,
+          "type": "payment",
+          "date": "2015-11-05T00:14:23.000Z",
+          "result": "successful"
+        }
+      ]
+    }
+  ]
+}
