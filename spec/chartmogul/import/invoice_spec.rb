@@ -1,6 +1,21 @@
 require "spec_helper"
 
 describe Chartmogul::Import::Invoice do
+  describe ".list" do
+    it "lists existing invoices" do
+      customer_uuid = "customer_001"
+      listing_options = { uuid: customer_uuid, page: 1, per_page: 1 }
+
+      stub_invoice_listing_api(listing_options)
+      invoices = Chartmogul::Import::Invoice.list(listing_options)
+
+      expect(invoices.current_page).to eq(1)
+      expect(invoices.invoices.count).to eq(1)
+      expect(invoices.invoices.first.uuid).not_to be_nil
+      expect(invoices.customer_uuid).to eq(customer_uuid)
+    end
+  end
+
   describe ".create" do
     it "creates a new invoice" do
       customer_uuid = "customer_001"

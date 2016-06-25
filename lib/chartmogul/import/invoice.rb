@@ -3,6 +3,11 @@ module Chartmogul
     class Invoice < Base
       attr_accessor :customer_uuid
 
+      def list(uuid:, **listing_options)
+        @customer_uuid = uuid
+        super(listing_options)
+      end
+
       def create(uuid:, invoice:)
         @customer_uuid = uuid
         super(invoices: build_invoices(invoice))

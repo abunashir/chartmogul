@@ -206,6 +206,16 @@ transaction_attributes = {
 }
 ```
 
+### List Customer's Invoices
+
+List the invoices of a specified customer
+
+```ruby
+Chartmogul::Import::Invoice.list(
+  uuid: customer_uuid, page: 1, per_page: 20
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

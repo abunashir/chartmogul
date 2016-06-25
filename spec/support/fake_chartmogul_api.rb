@@ -79,6 +79,15 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_invoice_listing_api(uuid:, **listing_options)
+    stub_api_response(
+      :get,
+      [invoice_end_point(uuid), resource_params(listing_options)].join("?"),
+      filename: "invoice_list",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
