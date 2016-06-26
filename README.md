@@ -206,13 +206,34 @@ transaction_attributes = {
 }
 ```
 
-### List Customer's Invoices
+#### List Customer's Invoices
 
 List the invoices of a specified customer
 
 ```ruby
 Chartmogul::Import::Invoice.list(
   uuid: customer_uuid, page: 1, per_page: 20
+)
+```
+
+### Transactions
+
+This object represents a payment or refund attempt on an invoice. You can add
+any number of successful and failed transaction attempts on an invoice to
+ChartMogul. Transaction objects influence Cash Flow metrics in your ChartMogul
+account.
+
+#### Import an Invoice Transaction
+
+Create a new transaction object for an invoice imported using the Import API.
+
+```ruby
+Chartmogul::Import::Transaction.create(
+  type: "refund",
+  uuid: "invoice_001",
+  result: "successful",
+  date: "2015-12-25 18:10:00",
+  external_id: "transaction_001"
 )
 ```
 

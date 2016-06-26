@@ -88,6 +88,16 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_transaction_create_api(uuid:, **attributes)
+    stub_api_response(
+      :post,
+      transaction_end_point(uuid),
+      data: attributes,
+      filename: "transaction_created",
+      status: 201
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
@@ -106,6 +116,10 @@ module FakeChartmogulApi
 
   def invoice_end_point(customer_uuid)
     ["import", "customers", customer_uuid, "invoices"].join("/")
+  end
+
+  def transaction_end_point(invoice_uuid)
+    ["import", "invoices", invoice_uuid, "transactions"].join("/")
   end
 
   def api_end_point(end_point)
