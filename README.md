@@ -255,6 +255,16 @@ Chartmogul::Import::Subscription.list(
 )
 ```
 
+#### Cancel Customer's Subscription
+
+Cancel a subscription that was generated from an imported invoice.
+
+```ruby
+Chartmogul::Import::Subscription.cancel(
+  uuid: "subscription_uuid_001", cancelled_at: "2016-01-15 00:00:00"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

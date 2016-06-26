@@ -19,6 +19,10 @@ module Chartmogul
       resources[end_point].post attributes.to_json, content_type: :json
     end
 
+    def patch
+      resources[end_point].patch attributes.to_json, content_type: :json
+    end
+
     def delete
       resources[end_point].delete content_type: :json
     end
@@ -43,6 +47,12 @@ module Chartmogul
   def self.post_resource(end_point, attributes)
     Chartmogul::Response.parse_json(
       Client.new(end_point, attributes).post
+    )
+  end
+
+  def self.patch_resource(end_point, attributes)
+    Chartmogul::Response.parse_json(
+      Client.new(end_point, attributes).patch
     )
   end
 

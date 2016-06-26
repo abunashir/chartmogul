@@ -107,6 +107,16 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_subscription_cancellation_api(uuid:, cancelled_at:)
+    stub_api_response(
+      :patch,
+      ["import", "subscriptions", uuid].join("/"),
+      data: { cancelled_at: cancelled_at },
+      filename: "subscription_cancelled",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
