@@ -237,6 +237,24 @@ Chartmogul::Import::Transaction.create(
 )
 ```
 
+### Subscriptions
+
+Subscription objects are auto-generated from Invoice objects. In ChartMogul,
+customers can have multiple subscriptions at the same time. Subscriptions are
+created when a customer purchases a plan for the first time. They may be
+altered, cancelled and re-activated indefinitely.
+
+#### List Customer's Subscriptions
+
+Retrieve a list of `subscription` objects for a given `customer`. Subscriptions
+are auto-generated from invoice objects created using the Import API.
+
+```ruby
+Chartmogul::Import::Subscription.list(
+  uuid: "customer_uuid_001", page: 1, per_page: 10
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
