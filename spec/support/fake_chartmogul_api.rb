@@ -126,7 +126,16 @@ module FakeChartmogulApi
     stub_api_response(
       :get,
       [search_end_point, resource_params(options)].join("?"),
-      filename: "search_results",
+      filename: "customer_entries",
+      status: 200
+    )
+  end
+
+  def stub_enrichment_customer_list_api(options)
+    stub_api_response(
+      :get,
+      ["customers", resource_params(options)].join("?"),
+      filename: "customer_entries",
       status: 200
     )
   end

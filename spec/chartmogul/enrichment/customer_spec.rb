@@ -30,4 +30,18 @@ describe Chartmogul::Enrichment::Customer do
       expect(results.entries.first.email).to eq(customer_email)
     end
   end
+
+  describe ".list" do
+    it "list all customers" do
+      listing_options = { page: 1, per_page: 1 }
+
+      stub_enrichment_customer_list_api(listing_options)
+      customers = Chartmogul::Enrichment::Customer.list(listing_options)
+
+      expect(customers.page).to eq(1)
+      expect(customers.per_page).to eq(1)
+      expect(customers.entries.count).to eq(1)
+      expect(customers.entries.first.name).to eq("Adam Smith")
+    end
+  end
 end

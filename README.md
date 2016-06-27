@@ -291,6 +291,16 @@ Chartmogul::Enrichment::Customer.search(
 )
 ```
 
+#### List all Customers
+
+Retrieve a list of all customer objects in your ChartMogul account.
+
+```ruby
+Chartmogul::Enrichment::Customer.list(
+  page: 1, per_page: 10
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

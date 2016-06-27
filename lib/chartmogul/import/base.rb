@@ -1,10 +1,6 @@
 module Chartmogul
   module Import
     class Base < Chartmogul::Base
-      def list(options = {})
-        Chartmogul.get_resource(resource_end_point, options)
-      end
-
       def create(attributes)
         if required_keys_exist?(attributes)
           Chartmogul.post_resource(resource_end_point, attributes)
