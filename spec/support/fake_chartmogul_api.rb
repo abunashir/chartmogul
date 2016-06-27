@@ -1,8 +1,4 @@
 module FakeChartmogulApi
-  def stub_authentication_api
-    stub_api_response(:get, "ping", filename: "authentication", status: 200)
-  end
-
   def stub_data_source_create_api(data_source)
     stub_api_response(
       :post,
