@@ -1,0 +1,65 @@
+{
+  "entries":[
+    {
+      "id": 25647,
+      "uuid": "cus_de305d54-75b4-431b",
+      "external_id": "34916129",
+      "email": "adam@smith.com",
+      "name": "Adam Smith",
+      "address": {
+        "address_line1": "First line of address",
+        "address_line2": "Second line of address",
+        "address_zip": "0185128",
+        "city": "Nowhereville",
+        "country": "US",
+        "state": "Alaska"
+      },
+      "mrr": 3000,
+      "arr": 36000,
+      "status": "Active",
+      "customer-since": "2015-06-09T13:16:00-04:00",
+      "billing-system-url": "https:\/\/dashboard.stripe.com\/customers\/cus_4Z2ZpyJFuQ0XMb",
+      "chartmogul-url": "https:\/\/app.chartmogul.com\/#customers\/25647-Example_Company",
+      "billing-system-type": "Stripe",
+      "currency": "USD",
+      "currency-sign": "$",
+      "attributes": {
+        "custom": {
+          "CAC": 213,
+          "utmCampaign": "social media 1",
+          "convertedAt": "2015-09-08 00:00:00",
+          "pro": false,
+          "salesRep": "Gabi"
+        },
+        "tags": ["engage", "unit loss", "discountable"],
+        "stripe": {
+          "uid": 7,
+          "coupon": true
+        }, 
+        "clearbit": {
+          "id": "027b0d40-016c-40ea-8925-a076fa640992",
+          "name": "Acme",
+          "legalName": "Acme Inc.",
+          "domain": "acme.com",
+          "url": "http://acme.com",
+          "metrics": {
+            "raised": 1502450000,
+            "employees": 1000,
+            "googleRank": 7,
+            "alexaGlobalRank": 2319,
+            "marketCap": null
+          },
+          "category": {
+            "sector": "Information Technology",
+            "industryGroup": "Software and Services",
+            "industry": "Software",
+            "subIndustry": "Application Software"
+          }
+        }
+      }
+    }
+  ],
+  "has_more":false,
+  "per_page":200,
+  "page":1
+}

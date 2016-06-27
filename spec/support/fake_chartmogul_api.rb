@@ -122,6 +122,15 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_customer_search_api(options)
+    stub_api_response(
+      :get,
+      [search_end_point, resource_params(options)].join("?"),
+      filename: "search_results",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
@@ -148,6 +157,10 @@ module FakeChartmogulApi
 
   def subscription_end_point(customer_uuid)
     ["import", "customers", customer_uuid, "subscriptions"].join("/")
+  end
+
+  def search_end_point
+    "customers/search"
   end
 
   def api_end_point(end_point)

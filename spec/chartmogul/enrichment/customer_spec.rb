@@ -14,4 +14,20 @@ describe Chartmogul::Enrichment::Customer do
       expect(customer["billing-system-type"]).to eq("Stripe")
     end
   end
+
+  describe ".search" do
+    it "retrieves the list of customers" do
+      customer_email = "adam@smith.com"
+
+      stub_customer_search_api(email: customer_email)
+      results = Chartmogul::Enrichment::Customer.search(
+        email: customer_email
+      )
+
+      expect(results.page).to eq(1)
+      expect(results.entries.count).to eq(1)
+      expect(results.entries.first.name).to eq("Adam Smith")
+      expect(results.entries.first.email).to eq(customer_email)
+    end
+  end
 end

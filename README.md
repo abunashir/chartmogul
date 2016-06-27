@@ -280,6 +280,17 @@ Retrieve a customer object from your ChartMogul account.
 Chartmogul::Enrichment::Customer.find("customer_id")
 ```
 
+#### Search for Customers
+
+Find a list of all `customer` objects with the specified email address in your
+ChartMogul account.
+
+```ruby
+Chartmogul::Enrichment::Customer.search(
+  email: "adam.smith@example.com"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
