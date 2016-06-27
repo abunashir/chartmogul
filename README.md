@@ -265,6 +265,21 @@ Chartmogul::Import::Subscription.cancel(
 )
 ```
 
+## Enrichment API
+
+The Enrichment API allows users to enrich their customer information in
+ChartMogul, and leverage the powerful segmentation features that we offer.
+
+### Customer
+
+#### Retrieve a Customer
+
+Retrieve a customer object from your ChartMogul account.
+
+```ruby
+Chartmogul::Enrichment::Customer.find("customer_id")
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

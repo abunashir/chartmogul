@@ -1,6 +1,6 @@
 module Chartmogul
   module Import
-    class Base
+    class Base < Chartmogul::Base
       def list(options = {})
         Chartmogul.get_resource(resource_end_point, options)
       end
@@ -17,17 +17,10 @@ module Chartmogul
         Chartmogul.delete_resource([resource_end_point, uuid].join("/"))
       end
 
-      def self.method_missing(method_name, *arguments, &block)
-        resource = new
-        if resource.respond_to?(method_name, include_private: false)
-          resource.send(method_name, *arguments, &block)
-        end
-      end
-
       private
 
-      def resource_end_point
-        ["import", end_point].compact.join("/")
+      def resource_base
+        "import"
       end
 
       def required_keys_exist?(attributes)
