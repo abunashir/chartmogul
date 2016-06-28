@@ -297,6 +297,21 @@ Chartmogul::Enrichment::Customer.list(
 )
 ```
 
+### Customer Attributes
+
+Customer attributes are metadata that can be used to filter and segment your
+customers in ChartMogul.
+
+#### Retrieve Customer's Attributes
+
+Retrieve the list of attributes for a given customer.
+
+```ruby
+Chartmogul::Enrichment::Attribute.list(
+  customer_id: customer_id
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

@@ -1,6 +1,6 @@
 module Chartmogul
   module Enrichment
-    class Customer < Chartmogul::Base
+    class Customer < Base
       attr_reader :customer_id
 
       def find(customer_id)
@@ -20,10 +20,6 @@ module Chartmogul
 
       def search_end_point
         [resource_end_point, "search"].join("/")
-      end
-
-      def resource_base
-        "customers"
       end
     end
   end
