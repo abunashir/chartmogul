@@ -19,10 +19,6 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install chartmogul
-
 ## Configure
 
 Once you have your API keys from ChartMogul, then you can add an initializer
@@ -270,7 +266,7 @@ Chartmogul::Import::Subscription.cancel(
 The Enrichment API allows users to enrich their customer information in
 ChartMogul, and leverage the powerful segmentation features that we offer.
 
-### Customer
+### Customers
 
 #### Retrieve a Customer
 
@@ -353,8 +349,23 @@ Chartmogul::Import::DataSource.list
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chartmogul. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+First, thank you for contributing! We love pull requests from everyone. By
+participating in this project, you hereby grant the right to grant or transfer
+an unlimited number of non exclusive licenses or sub-licenses to third parties,
+under the copyright covering the contribution to use the contribution by all
+means.
 
+Here are a few technical guidelines to follow:
+
+1. Open an [issue][issues] to discuss a new feature.
+1. Write tests to support your new feature.
+1. Make sure the entire test suite passes locally and on CI.
+1. Open a Pull Request.
+1. [Squash your commits][squash] after receiving feedback.
+1. Party!
+
+[issues]: https://github.com/abunashir/chartmogul/issues
+[squash]: https://github.com/thoughtbot/guides/tree/master/protocol/git#write-a-feature
 
 ## License
 
