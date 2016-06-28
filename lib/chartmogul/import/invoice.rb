@@ -10,7 +10,7 @@ module Chartmogul
 
       def create(uuid:, invoice:)
         @customer_uuid = uuid
-        super(invoices: build_invoices(invoice))
+        super(invoices: build_array(invoice))
       end
 
       private
@@ -21,14 +21,6 @@ module Chartmogul
 
       def required_keys
         [:external_id, :date, :currency, :line_items]
-      end
-
-      def build_invoices(invoices)
-        unless invoices.is_a?(Array)
-          invoices = [invoices]
-        end
-
-        invoices
       end
 
       def required_keys_exist?(attributes)

@@ -149,6 +149,16 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_customer_tag_create_api(customer_id:, tag:)
+    stub_api_response(
+      :post,
+      ["customers", customer_id, "attributes", "tags"].join("/"),
+      data: { tags: [tag] },
+      filename: "tag_created",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)

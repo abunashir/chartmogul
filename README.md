@@ -312,6 +312,25 @@ Chartmogul::Enrichment::Attribute.list(
 )
 ```
 
+### Tags
+
+Tags are a type of customer attribute. Think of them as keywords that can be
+used to describe properties of customers. Tags are useful for storing
+unstructured information on a `customer` object.
+
+#### Add Tags to a Customer
+
+```ruby
+# Add a single tag for a specified customer
+#
+# If you want to add multiple tag in one request, simply
+# pass an Array as `tag: ["tag_one", "tag_two", "tag_three"]`
+
+Chartmogul::Enrichment::Tag.create(
+  customer_id: customer_id, tag: "important"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

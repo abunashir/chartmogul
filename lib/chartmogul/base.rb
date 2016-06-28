@@ -13,8 +13,32 @@ module Chartmogul
 
     private
 
+    def create_api(attributes)
+      if required_keys_exist?(attributes)
+        Chartmogul.post_resource(resource_end_point, attributes)
+      else
+        raise ArgumentError.new("Required keys: " + required_keys.join(", "))
+      end
+    end
+
     def resource_end_point
       [resource_base, end_point].compact.join("/")
+    end
+
+    def required_keys_exist?(attributes)
+      !required_keys.map { |key| attributes.include?(key) }.include?(false)
+    end
+
+    def required_keys
+      []
+    end
+
+    def build_array(value)
+      unless value.is_a?(Array)
+        value = [value]
+      end
+
+      value
     end
   end
 end
