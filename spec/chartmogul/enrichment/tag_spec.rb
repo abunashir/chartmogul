@@ -30,4 +30,16 @@ describe Chartmogul::Enrichment::Tag do
       end
     end
   end
+
+  describe ".remove" do
+    it "removes the specified tag from customer" do
+      tag_attributes = { customer_id: "customer_id_001", tag: "important" }
+
+      stub_customer_tag_delete_api(tag_attributes)
+      tags = Chartmogul::Enrichment::Tag.delete(tag_attributes)
+
+      expect(tags.tags.count).to eq(4)
+      expect(tags.tags).not_to include("important")
+    end
+  end
 end

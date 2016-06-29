@@ -51,7 +51,7 @@ module Chartmogul
     Client.new(end_point, :patch, attributes).execute
   end
 
-  def self.delete_resource(end_point)
-    Client.new(end_point, :delete).execute
+  def self.delete_resource(end_point, attributes = {})
+    Client.new(end_point, :delete, attributes).execute
   end
 end

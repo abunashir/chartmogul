@@ -8,6 +8,14 @@ module Chartmogul
         create_api(build_tag_attributes(tag, email))
       end
 
+      def delete(customer_id:, tag:)
+        @customer_id = customer_id
+
+        Chartmogul.delete_resource(
+          resource_end_point, tags: build_array(tag)
+        )
+      end
+
       private
 
       def end_point

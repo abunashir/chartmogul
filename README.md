@@ -346,6 +346,21 @@ Chartmogul::Enrichment::Tag.create(
 )
 ```
 
+#### Remove Tags from a Customer
+
+Removes tags from a given customer.
+
+```ruby
+# Remove a single tag for a specified customer
+#
+# If you want to remove multiple tag in one request, simply
+# pass an Array as `tag: ["tag_one", "tag_two", "tag_three"]`
+
+Chartmogul::Enrichment::Tag.delete(
+  customer_id: customer_id, tag: "important"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
