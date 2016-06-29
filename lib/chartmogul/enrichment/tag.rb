@@ -3,15 +3,25 @@ module Chartmogul
     class Tag < Base
       attr_reader :customer_id
 
-      def create(customer_id:, tag:)
+      def create(tag:, customer_id: nil, email: nil)
         @customer_id = customer_id
-        create_api(tags: build_array(tag))
+        create_api(build_tag_attributes(tag, email))
       end
 
       private
 
       def end_point
-        [customer_id, "attributes", "tags"]
+        [customer_id, "attributes", "tags"].compact.join("/")
+      end
+
+      def build_tag_attributes(tag, email)
+        Hash.new.tap do |attributes|
+          attributes[:tags] = build_array(tag)
+
+          unless email.nil?
+            attributes[:email] = email
+          end
+        end
       end
     end
   end

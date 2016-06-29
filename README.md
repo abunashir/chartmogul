@@ -331,6 +331,21 @@ Chartmogul::Enrichment::Tag.create(
 )
 ```
 
+#### Add Tags to Customers with email
+
+Adds tags to customers that have the specified email address.
+
+```ruby
+# Add a single tag for a specified customer
+#
+# If you want to add multiple tag in one request, simply
+# pass an Array as `tag: ["tag_one", "tag_two", "tag_three"]`
+
+Chartmogul::Enrichment::Tag.create(
+  email: "customer@example.com", tag: "important"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
