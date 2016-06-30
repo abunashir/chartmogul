@@ -3,9 +3,9 @@ module Chartmogul
     class CustomAttribute < Base
       attr_reader :customer_id
 
-      def create(customer_id:, attribute:)
+      def create(attribute:, customer_id: nil, email: nil)
         @customer_id = customer_id
-        create_api(custom: build_array(attribute))
+        create_api(build_custom_attributes(attribute, email))
       end
 
       private
@@ -21,6 +21,16 @@ module Chartmogul
       def required_keys_exist?(attributes)
         attributes = attributes[:custom]
         !attributes.map { |attribute| super(attribute) }.include?(false)
+      end
+
+      def build_custom_attributes(attribute, email)
+        Hash.new.tap do |attributes|
+          attributes[:custom] = build_array(attribute)
+
+          unless email.nil?
+            attributes[:email] = email
+          end
+        end
       end
     end
   end

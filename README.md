@@ -387,6 +387,26 @@ Chartmogul::Enrichment::CustomAttribute.create(
 )
 ```
 
+#### Add Custom Attributes with Email
+
+Adds custom attributes to customers that have the specified email address.
+
+```ruby
+# Add a single custom attribute for a specified customer
+#
+# If you want to add multiple custom attribute, simply pass in
+# an Array as `attribute: [attribute_hash, another_attribute_hash]`
+
+Chartmogul::Enrichment::CustomAttribute.create(
+  email: "customer@example.com",
+  attribute: {
+    type: "String",
+    key: "Channel",
+    value: "Facebook"
+  }
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
