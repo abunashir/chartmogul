@@ -361,6 +361,32 @@ Chartmogul::Enrichment::Tag.delete(
 )
 ```
 
+### Custom Attributes
+
+Custom Attributes are a type of customer attribute. They are key-value
+metadata that can be used to describe properties of customers. Custom
+Attributes are useful for storing structured information on a `customer`.
+
+#### Add Custom Attributes
+
+Adds custom attributes to a given customer.
+
+```ruby
+# Add a single custom attribute for a specified customer
+#
+# If you want to add multiple custom attribute, simply pass in
+# an Array as `attribute: [attribute_hash, another_attribute_hash]`
+
+Chartmogul::Enrichment::CustomAttribute.create(
+  customer_id: customer_id,
+  attribute: {
+    type: "String",
+    key: "Channel",
+    value: "Facebook"
+  }
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
