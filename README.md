@@ -381,7 +381,7 @@ Chartmogul::Enrichment::CustomAttribute.create(
   customer_id: customer_id,
   attribute: {
     type: "String",
-    key: "Channel",
+    key: "channel",
     value: "Facebook"
   }
 )
@@ -401,9 +401,20 @@ Chartmogul::Enrichment::CustomAttribute.create(
   email: "customer@example.com",
   attribute: {
     type: "String",
-    key: "Channel",
+    key: "channel",
     value: "Facebook"
   }
+)
+```
+
+#### Update Custom Attributes
+
+Update the custom attributes of a given customer.
+
+```ruby
+Chartmogul::Enrichment::CustomAttribute.update(
+  customer_id: customer_id,
+  attribute: { key: value, another_key: another_new_value }
 )
 ```
 

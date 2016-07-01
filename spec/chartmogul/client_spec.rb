@@ -11,29 +11,39 @@ describe Chartmogul::Client do
 
   describe ".post_resource" do
     it "requests the resource via :post" do
-      content = { massage: "message content" }
-      stub_charmogul_ping_request(:post, content)
-
-      expect(Chartmogul.post_resource("ping", content).data).to eq("pong!")
+      stub_charmogul_ping_request(:post, content_body)
+      expect(Chartmogul.post_resource("ping", content_body).data).to eq("pong!")
     end
   end
 
-  describe ".patch" do
+  describe ".put_resource" do
+    it "requests the resource via :put" do
+      stub_charmogul_ping_request(:put, content_body)
+      expect(Chartmogul.put_resource("ping", content_body).data).to eq("pong!")
+    end
+  end
+
+  describe ".patch_resource" do
     it "requests the resource via :patch" do
-      content = { message: "message content" }
-      stub_charmogul_ping_request(:patch, content)
+      stub_charmogul_ping_request(:patch, content_body)
 
-      expect(Chartmogul.patch_resource("ping", content).data).to eq("pong!")
+      expect(
+        Chartmogul.patch_resource("ping", content_body).data
+      ).to eq("pong!")
     end
   end
 
-  describe ".delete" do
+  describe ".delete_resource" do
     it "requests the resource via :delete" do
       stub_charmogul_ping_request(:delete, nil)
       response = Chartmogul.delete_resource("ping")
 
       expect(Chartmogul::Response.parse_json(response).data).to eq("pong!")
     end
+  end
+
+  def content_body
+    { message: "message content" }
   end
 
   def stub_charmogul_ping_request(method, content, end_point = "ping")

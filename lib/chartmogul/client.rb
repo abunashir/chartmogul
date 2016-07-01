@@ -47,6 +47,10 @@ module Chartmogul
     Client.new(end_point, :post, attributes).execute
   end
 
+  def self.put_resource(end_point, attributes)
+    Client.new(end_point, :put, attributes).execute
+  end
+
   def self.patch_resource(end_point, attributes)
     Client.new(end_point, :patch, attributes).execute
   end

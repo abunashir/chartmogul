@@ -8,6 +8,11 @@ module Chartmogul
         create_api(build_custom_attributes(attribute, email))
       end
 
+      def update(customer_id:, attribute:)
+        @customer_id = customer_id
+        Chartmogul.put_resource(resource_end_point, custom: attribute)
+      end
+
       private
 
       def end_point

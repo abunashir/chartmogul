@@ -199,6 +199,16 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_custom_attribute_update_api(customer_id:, attribute:)
+    stub_api_response(
+      :put,
+      ["customers", customer_id, "attributes", "custom"].join("/"),
+      data: { custom: attribute },
+      filename: "custom_attribute_updated",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
