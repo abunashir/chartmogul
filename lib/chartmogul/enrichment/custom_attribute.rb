@@ -13,6 +13,11 @@ module Chartmogul
         Chartmogul.put_resource(resource_end_point, custom: attribute)
       end
 
+      def delete(customer_id:, attribute:)
+        @customer_id = customer_id
+        delete_api(custom: build_array(attribute))
+      end
+
       private
 
       def end_point

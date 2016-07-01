@@ -10,10 +10,7 @@ module Chartmogul
 
       def delete(customer_id:, tag:)
         @customer_id = customer_id
-
-        Chartmogul.delete_resource(
-          resource_end_point, tags: build_array(tag)
-        )
+        delete_api(tags: build_array(tag))
       end
 
       private

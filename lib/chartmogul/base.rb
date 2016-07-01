@@ -21,6 +21,10 @@ module Chartmogul
       end
     end
 
+    def delete_api(attributes = {})
+      Chartmogul.delete_resource(resource_end_point, attributes)
+    end
+
     def resource_end_point
       [resource_base, end_point].compact.join("/")
     end

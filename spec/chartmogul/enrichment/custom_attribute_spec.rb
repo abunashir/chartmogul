@@ -51,6 +51,21 @@ describe Chartmogul::Enrichment::CustomAttribute do
     end
   end
 
+  describe ".delete" do
+    it "removes custom attributes from the customer" do
+      custom_attrubute_hash = {
+        customer_id: "customer_id_001", attribute: "channel"
+      }
+
+      stub_custom_attribute_delete_api(custom_attrubute_hash)
+      custom_attribute = Chartmogul::Enrichment::CustomAttribute.delete(
+        custom_attrubute_hash
+      )
+
+      expect(custom_attribute.custom.channel).to be_nil
+    end
+  end
+
   def attribute
     {
       type: "String",

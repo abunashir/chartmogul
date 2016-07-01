@@ -418,6 +418,21 @@ Chartmogul::Enrichment::CustomAttribute.update(
 )
 ```
 
+#### Remove Custom Attributes
+
+Removes custom attributes from a given customer.
+
+```ruby
+# Remove a single custom attribute form a given customer
+#
+# If you want to remove multiple custom attributes, simply pass in an
+# Array as `attribute: ["attribute_key", "another_attribute_key"]`
+
+Chartmogul::Enrichment::CustomAttribute.delete(
+  customer_id: customer_id, attribute: "attribute_key"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
