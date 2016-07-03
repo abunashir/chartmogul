@@ -1,27 +1,23 @@
 module Chartmogul
   module Enrichment
     class CustomAttribute < Base
-      attr_reader :customer_id
-
       def create(attribute:, customer_id: nil, email: nil)
-        @customer_id = customer_id
-        create_api(build_custom_attributes(attribute, email))
+        create_customer_metadata(customer_id, email, attribute)
       end
 
       def update(customer_id:, attribute:)
-        @customer_id = customer_id
-        Chartmogul.put_resource(resource_end_point, custom: attribute)
+        set_customer_id(customer_id)
+        update_resource(custom: attribute)
       end
 
       def delete(customer_id:, attribute:)
-        @customer_id = customer_id
-        delete_api(custom: build_array(attribute))
+        delete_customer_metadata(customer_id, attribute)
       end
 
       private
 
-      def end_point
-        [customer_id, "attributes", "custom"].compact.join("/")
+      def resource_key
+        "custom"
       end
 
       def required_keys
@@ -31,16 +27,6 @@ module Chartmogul
       def required_keys_exist?(attributes)
         attributes = attributes[:custom]
         !attributes.map { |attribute| super(attribute) }.include?(false)
-      end
-
-      def build_custom_attributes(attribute, email)
-        Hash.new.tap do |attributes|
-          attributes[:custom] = build_array(attribute)
-
-          unless email.nil?
-            attributes[:email] = email
-          end
-        end
       end
     end
   end

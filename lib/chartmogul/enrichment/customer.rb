@@ -1,10 +1,12 @@
 module Chartmogul
   module Enrichment
     class Customer < Base
-      attr_reader :customer_id
+      def list(options = {})
+        list_resource(options)
+      end
 
       def find(customer_id)
-        @customer_id = customer_id
+        set_customer_id(customer_id)
         Chartmogul.get_resource(resource_end_point)
       end
 

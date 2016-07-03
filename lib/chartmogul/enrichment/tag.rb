@@ -1,32 +1,18 @@
 module Chartmogul
   module Enrichment
     class Tag < Base
-      attr_reader :customer_id
-
       def create(tag:, customer_id: nil, email: nil)
-        @customer_id = customer_id
-        create_api(build_tag_attributes(tag, email))
+        create_customer_metadata(customer_id, email, tag)
       end
 
       def delete(customer_id:, tag:)
-        @customer_id = customer_id
-        delete_api(tags: build_array(tag))
+        delete_customer_metadata(customer_id, tag)
       end
 
       private
 
-      def end_point
-        [customer_id, "attributes", "tags"].compact.join("/")
-      end
-
-      def build_tag_attributes(tag, email)
-        Hash.new.tap do |attributes|
-          attributes[:tags] = build_array(tag)
-
-          unless email.nil?
-            attributes[:email] = email
-          end
-        end
+      def resource_key
+        "tags"
       end
     end
   end
