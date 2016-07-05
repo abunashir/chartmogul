@@ -1,15 +1,15 @@
 module Chartmogul
   module Metric
-    class KeyMetric < Base
+    class MRRMetric < Base
       private
 
       def end_point
-        "all"
+        "mrr"
       end
     end
 
-    def self.key_metrics(start_date:, end_date:, **options)
-      KeyMetric.retrieve(
+    def self.mrr_metrics(start_date:, end_date:, **options)
+      MRRMetric.retrieve(
         start_date: start_date, end_date: end_date, **options
       )
     end

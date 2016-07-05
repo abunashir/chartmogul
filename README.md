@@ -433,10 +433,12 @@ Chartmogul::Enrichment::CustomAttribute.delete(
 )
 ```
 
-### Metrics API
+## Metrics API
 
 The Metrics API allows users to programmatically pull the subscription metrics
 that ChartMogul generates.
+
+### Metrics
 
 #### Retrieve all key metrics
 
@@ -444,6 +446,20 @@ Retrieve all key metrics, for the specified time period.
 
 ```ruby
 Chartmogul::Metric.key_metrics(
+  start_date: "2015-05-12",
+  end_date: "2015-05-12",
+  interval: "month",
+  geo: "US,GB,DE",
+  plans: "Bronze Plan"
+)
+```
+
+#### Retrieve MRR
+
+Retrieve the Monthly Recurring Revenue (MRR), for the specified time period.
+
+```ruby
+Chartmogul::Metric.mrr_metrics(
   start_date: "2015-05-12",
   end_date: "2015-05-12",
   interval: "month",

@@ -220,12 +220,11 @@ module FakeChartmogulApi
   end
 
   def stub_listing_key_metrics_api(attributes)
-    stub_api_response(
-      :get,
-      ["metrics/all", metrics_params(attributes)].join("?"),
-      filename: "key_metrics",
-      status: 200
-    )
+    stub_retrive_metrics_api("all", attributes, "key_metrics")
+  end
+
+  def stub_listing_mrr_metrics_api(attributes)
+    stub_retrive_metrics_api("mrr", attributes, "mrr_metrics")
   end
 
   private
@@ -234,6 +233,15 @@ module FakeChartmogulApi
     stub_request(method, api_end_point(end_point)).
       with(api_request_headers(data: data)).
       to_return(response_with(filename: filename, status: status))
+  end
+
+  def stub_retrive_metrics_api(end_point, attributes, filename)
+    stub_api_response(
+      :get,
+      [["metrics", end_point].join("/"), metrics_params(attributes)].join("?"),
+      filename: filename,
+      status: 200
+    )
   end
 
   def resource_params(options)
