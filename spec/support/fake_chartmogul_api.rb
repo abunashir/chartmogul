@@ -227,6 +227,10 @@ module FakeChartmogulApi
     stub_retrive_metrics_api("mrr", attributes, "mrr_metrics")
   end
 
+  def stub_listing_arr_metrics_api(attributes)
+    stub_retrive_metrics_api("arr", attributes, "arr_metrics")
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)

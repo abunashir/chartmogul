@@ -23,6 +23,17 @@ describe Chartmogul::Metric do
     end
   end
 
+  describe ".arr_metrics" do
+    it "retrieves the annualized run rate" do
+      stub_listing_arr_metrics_api(metric_attributes)
+      metrics = Chartmogul::Metric.arr_metrics(metric_attributes)
+
+      expect(metrics.summary.current).not_to be_nil
+      expect(metrics.entries.first.arr).not_to be_nil
+      expect(metrics.entries.first.date).not_to be_nil
+    end
+  end
+
   def metric_attributes
     @metric_attributes ||= {
       start_date: "2015-05-12",
