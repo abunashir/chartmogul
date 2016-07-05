@@ -1,0 +1,17 @@
+{
+  "entries":[
+    {
+      "date":"2015-01-03",
+      "arpa":15000
+    },
+    {
+      "date":"2015-01-10",
+      "arpa":15000
+    }
+  ],
+  "summary":{
+    "current":980568,
+    "previous":980568,
+    "percentage-change":0.0
+  }
+}

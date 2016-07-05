@@ -13,7 +13,7 @@ describe Chartmogul::Metric do
   end
 
   describe ".mrr_metrics" do
-    it "retrieves the monthly recurring revenue" do
+    it "retrieves the monthly recurring revenue metrics" do
       stub_listing_mrr_metrics_api(metric_attributes)
       metrics = Chartmogul::Metric.mrr_metrics(metric_attributes)
 
@@ -24,12 +24,23 @@ describe Chartmogul::Metric do
   end
 
   describe ".arr_metrics" do
-    it "retrieves the annualized run rate" do
+    it "retrieves the annualized run rate metrics" do
       stub_listing_arr_metrics_api(metric_attributes)
       metrics = Chartmogul::Metric.arr_metrics(metric_attributes)
 
       expect(metrics.summary.current).not_to be_nil
       expect(metrics.entries.first.arr).not_to be_nil
+      expect(metrics.entries.first.date).not_to be_nil
+    end
+  end
+
+  describe ".arpa_metrics" do
+    it "retrieves the average revenue per account metrics" do
+      stub_listing_arpa_metrics_api(metric_attributes)
+      metrics = Chartmogul::Metric.arpa_metrics(metric_attributes)
+
+      expect(metrics.summary.current).not_to be_nil
+      expect(metrics.entries.first.arpa).not_to be_nil
       expect(metrics.entries.first.date).not_to be_nil
     end
   end
