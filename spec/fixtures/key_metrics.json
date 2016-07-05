@@ -1,0 +1,26 @@
+{
+  "entries":[
+    {
+      "date":"2015-01-31",
+      "customer-churn-rate":20,
+      "mrr-churn-rate":14,
+      "ltv":1250.3,
+      "customers":331,
+      "asp":125,
+      "arpa":1250,
+      "arr":254000,
+      "mrr":21166
+    },
+    {
+      "date":"2015-02-28",
+      "customer-churn-rate":20,
+      "mrr-churn-rate":22,
+      "ltv":1248,
+      "customers":329,
+      "asp":125,
+      "arpa":1250,
+      "arr":238000,
+      "mrr":21089
+    }
+  ]
+}

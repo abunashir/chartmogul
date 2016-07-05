@@ -219,6 +219,15 @@ module FakeChartmogulApi
     )
   end
 
+  def stub_listing_key_metrics_api(attributes)
+    stub_api_response(
+      :get,
+      ["metrics/all", metrics_params(attributes)].join("?"),
+      filename: "key_metrics",
+      status: 200
+    )
+  end
+
   private
 
   def stub_api_response(method, end_point, filename:, status: 200, data: nil)
@@ -229,6 +238,10 @@ module FakeChartmogulApi
 
   def resource_params(options)
     options.map { |key, value| [key, value].join("=") }.join("&")
+  end
+
+  def metrics_params(options)
+    resource_params(stringify_keys(options))
   end
 
   def plan_end_point
@@ -278,5 +291,15 @@ module FakeChartmogulApi
 
   def fixture_file(filename)
     File.read "./spec/fixtures/#{filename}.json"
+  end
+
+  def stringify_keys(options)
+    Hash.new.tap do |attribute|
+      options.each { |key, value| attribute[dasherize(key)] = value }
+    end
+  end
+
+  def dasherize(underscored_word)
+    underscored_word.to_s.tr("_".freeze, "-".freeze)
   end
 end
