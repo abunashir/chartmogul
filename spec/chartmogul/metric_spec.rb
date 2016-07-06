@@ -76,6 +76,16 @@ describe Chartmogul::Metric do
     end
   end
 
+  describe ".mrrcr_metrics" do
+    it "retrieves the net MRR churn rate metrics" do
+      stub_retrieving_metrics_api("mrr-churn-rate", metric_attributes)
+      metrics = Chartmogul::Metric.mrrcr_metrics(metric_attributes)
+
+      expect(metrics.summary.current).not_to be_nil
+      expect(metrics.entries.first["mrr-churn-rate"]).not_to be_nil
+    end
+  end
+
   def metric_attributes
     @metric_attributes ||= {
       start_date: "2015-05-12",

@@ -1,0 +1,17 @@
+{
+  "entries":[
+    {
+      "date":"2015-01-31",
+      "mrr-churn-rate":-300.0
+    },
+    {
+      "date":"2015-02-28",
+      "mrr-churn-rate":-0.0
+    }
+  ],
+  "summary":{
+    "current":0,
+    "previous":0,
+    "percentage-change":0.0
+  }
+}
