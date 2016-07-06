@@ -56,6 +56,16 @@ describe Chartmogul::Metric do
     end
   end
 
+  describe ".cc_metrics" do
+    it "retrieves the number of active customers metrics" do
+      stub_retrieving_metrics_api("customer-count", metric_attributes)
+      metrics = Chartmogul::Metric.cc_metrics(metric_attributes)
+
+      expect(metrics.summary.current).not_to be_nil
+      expect(metrics.entries.first.customers).not_to be_nil
+    end
+  end
+
   def metric_attributes
     @metric_attributes ||= {
       start_date: "2015-05-12",

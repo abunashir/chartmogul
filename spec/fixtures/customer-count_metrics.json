@@ -1,0 +1,13 @@
+{
+  "entries":[
+    {
+      "date":"2015-07-31",
+      "customers":382
+    }
+  ],
+  "summary":{
+    "current":382,
+    "previous":379,
+    "percentage-change":0.8
+  }
+}

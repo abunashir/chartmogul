@@ -510,6 +510,20 @@ Chartmogul::Metric.asp_metrics(
 )
 ```
 
+#### Retrieve Customer Count
+
+Retrieve the number of active customers, for the specified time period.
+
+```ruby
+Chartmogul::Metric.cc_metrics(
+  start_date: "2015-05-12",
+  end_date: "2015-05-12",
+  interval: "month",
+  geo: "US,GB,DE",
+  plans: "Bronze Plan"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the
