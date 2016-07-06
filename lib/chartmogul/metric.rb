@@ -2,6 +2,7 @@ require "chartmogul/metrics/base"
 require "chartmogul/metrics/key_metric"
 require "chartmogul/metrics/mrr_metric"
 require "chartmogul/metrics/arr_metric"
+require "chartmogul/metrics/asp_metric"
 require "chartmogul/metrics/arpa_metric"
 
 module Chartmogul

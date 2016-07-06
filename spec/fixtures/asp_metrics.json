@@ -1,0 +1,17 @@
+{
+  "entries":[
+    {
+      "date":"2015-01-31",
+      "asp":10000
+    },
+    {
+      "date":"2015-02-28",
+      "asp":524000
+    }
+  ],
+  "summary":{
+    "current":524000,
+    "previous":524000,
+    "percentage-change":0.0
+  }
+}

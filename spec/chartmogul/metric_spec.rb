@@ -3,7 +3,7 @@ require "spec_helper"
 describe Chartmogul::Metric do
   describe ".key_metrics" do
     it "retrieves all key matrics" do
-      stub_listing_key_metrics_api(metric_attributes)
+      stub_retrieving_metrics_api("all", metric_attributes)
       metrics = Chartmogul::Metric.key_metrics(metric_attributes)
 
       expect(metrics.entries.first.asp).not_to be_nil
@@ -14,7 +14,7 @@ describe Chartmogul::Metric do
 
   describe ".mrr_metrics" do
     it "retrieves the monthly recurring revenue metrics" do
-      stub_listing_mrr_metrics_api(metric_attributes)
+      stub_retrieving_metrics_api("mrr", metric_attributes)
       metrics = Chartmogul::Metric.mrr_metrics(metric_attributes)
 
       expect(metrics.summary.current).not_to be_nil
@@ -25,7 +25,7 @@ describe Chartmogul::Metric do
 
   describe ".arr_metrics" do
     it "retrieves the annualized run rate metrics" do
-      stub_listing_arr_metrics_api(metric_attributes)
+      stub_retrieving_metrics_api("arr", metric_attributes)
       metrics = Chartmogul::Metric.arr_metrics(metric_attributes)
 
       expect(metrics.summary.current).not_to be_nil
@@ -36,11 +36,22 @@ describe Chartmogul::Metric do
 
   describe ".arpa_metrics" do
     it "retrieves the average revenue per account metrics" do
-      stub_listing_arpa_metrics_api(metric_attributes)
+      stub_retrieving_metrics_api("arpa", metric_attributes)
       metrics = Chartmogul::Metric.arpa_metrics(metric_attributes)
 
       expect(metrics.summary.current).not_to be_nil
       expect(metrics.entries.first.arpa).not_to be_nil
+      expect(metrics.entries.first.date).not_to be_nil
+    end
+  end
+
+  describe ".asp_metrics" do
+    it "retrieves the average sale price metrics" do
+      stub_retrieving_metrics_api("asp", metric_attributes)
+      metrics = Chartmogul::Metric.asp_metrics(metric_attributes)
+
+      expect(metrics.summary.current).not_to be_nil
+      expect(metrics.entries.first.asp).not_to be_nil
       expect(metrics.entries.first.date).not_to be_nil
     end
   end
