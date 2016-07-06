@@ -550,6 +550,19 @@ Chartmogul::Metric.mrrcr_metrics(
 )
 ```
 
+#### Retrieve LTV
+
+Retrieves the Customer Lifetime Value (LTV), for the specified time period.
+
+```ruby
+Chartmogul::Metric.ltv_metrics(
+  start_date: "2015-05-12",
+  end_date: "2015-05-12",
+  geo: "US,GB,DE",
+  plans: "Bronze Plan"
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

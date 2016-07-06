@@ -86,6 +86,16 @@ describe Chartmogul::Metric do
     end
   end
 
+  describe ".ltv_metrics" do
+    it "retrieves the customer life time value metrics" do
+      stub_retrieving_metrics_api("ltv", metric_attributes)
+      metrics = Chartmogul::Metric.ltv_metrics(metric_attributes)
+
+      expect(metrics.summary.current).not_to be_nil
+      expect(metrics.entries.first.ltv).not_to be_nil
+    end
+  end
+
   def metric_attributes
     @metric_attributes ||= {
       start_date: "2015-05-12",
