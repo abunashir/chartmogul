@@ -445,7 +445,7 @@ that ChartMogul generates.
 Retrieve all key metrics, for the specified time period.
 
 ```ruby
-Chartmogul::Metric.key_metrics(
+Chartmogul::Metric.all_metrics(
   start_date: "2015-05-12",
   end_date: "2015-05-12",
   interval: "month",

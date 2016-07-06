@@ -1,10 +1,10 @@
 require "spec_helper"
 
 describe Chartmogul::Metric do
-  describe ".key_metrics" do
+  describe ".all_metrics" do
     it "retrieves all key matrics" do
       stub_retrieving_metrics_api("all", metric_attributes)
-      metrics = Chartmogul::Metric.key_metrics(metric_attributes)
+      metrics = Chartmogul::Metric.all_metrics(metric_attributes)
 
       expect(metrics.entries.first.asp).not_to be_nil
       expect(metrics.entries.first.arpa).not_to be_nil
