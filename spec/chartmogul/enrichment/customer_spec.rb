@@ -3,12 +3,12 @@ require "spec_helper"
 describe Chartmogul::Enrichment::Customer do
   describe ".find" do
     it "retrieves a customer details" do
-      customer_id = "customer_id_001"
+      customer_uuid = "customer_uuid_001"
 
-      stub_customer_find_api(customer_id)
-      customer = Chartmogul::Enrichment::Customer.find(customer_id)
+      stub_customer_find_api(customer_uuid)
+      customer = Chartmogul::Enrichment::Customer.find(customer_uuid)
 
-      expect(customer.id).to eq(customer_id)
+      expect(customer.uuid).to eq(customer_uuid)
       expect(customer.status).to eq("Active")
       expect(customer.name).to eq("Adam Smith")
       expect(customer["billing-system-type"]).to eq("Stripe")

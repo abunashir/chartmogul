@@ -273,7 +273,7 @@ ChartMogul, and leverage the powerful segmentation features that we offer.
 Retrieve a customer object from your ChartMogul account.
 
 ```ruby
-Chartmogul::Enrichment::Customer.find("customer_id")
+Chartmogul::Enrichment::Customer.find("customer_uuid")
 ```
 
 #### Search for Customers
@@ -308,7 +308,7 @@ Retrieve the list of attributes for a given customer.
 
 ```ruby
 Chartmogul::Enrichment::Attribute.list(
-  customer_id: customer_id
+  customer_uuid: customer_uuid
 )
 ```
 
@@ -327,7 +327,7 @@ unstructured information on a `customer` object.
 # pass an Array as `tag: ["tag_one", "tag_two", "tag_three"]`
 
 Chartmogul::Enrichment::Tag.create(
-  customer_id: customer_id, tag: "important"
+  customer_uuid: customer_uuid, tag: "important"
 )
 ```
 
@@ -357,7 +357,7 @@ Removes tags from a given customer.
 # pass an Array as `tag: ["tag_one", "tag_two", "tag_three"]`
 
 Chartmogul::Enrichment::Tag.delete(
-  customer_id: customer_id, tag: "important"
+  customer_uuid: customer_uuid, tag: "important"
 )
 ```
 
@@ -378,7 +378,7 @@ Adds custom attributes to a given customer.
 # an Array as `attribute: [attribute_hash, another_attribute_hash]`
 
 Chartmogul::Enrichment::CustomAttribute.create(
-  customer_id: customer_id,
+  customer_uuid: customer_uuid,
   attribute: {
     type: "String",
     key: "channel",
@@ -413,7 +413,7 @@ Update the custom attributes of a given customer.
 
 ```ruby
 Chartmogul::Enrichment::CustomAttribute.update(
-  customer_id: customer_id,
+  customer_uuid: customer_uuid,
   attribute: { key: value, another_key: another_new_value }
 )
 ```
@@ -429,7 +429,7 @@ Removes custom attributes from a given customer.
 # Array as `attribute: ["attribute_key", "another_attribute_key"]`
 
 Chartmogul::Enrichment::CustomAttribute.delete(
-  customer_id: customer_id, attribute: "attribute_key"
+  customer_uuid: customer_uuid, attribute: "attribute_key"
 )
 ```
 

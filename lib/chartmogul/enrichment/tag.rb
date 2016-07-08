@@ -1,12 +1,12 @@
 module Chartmogul
   module Enrichment
     class Tag < Base
-      def create(tag:, customer_id: nil, email: nil)
-        create_customer_metadata(customer_id, email, tag)
+      def create(tag:, customer_uuid: nil, email: nil)
+        create_customer_metadata(customer_uuid, email, tag)
       end
 
-      def delete(customer_id:, tag:)
-        delete_customer_metadata(customer_id, tag)
+      def delete(customer_uuid:, tag:)
+        delete_customer_metadata(customer_uuid, tag)
       end
 
       private

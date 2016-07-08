@@ -2,10 +2,10 @@ require "spec_helper"
 
 describe Chartmogul::Enrichment::CustomAttribute do
   describe ".create" do
-    context "when customer id and attribute provided" do
+    context "when customer uuid and attribute provided" do
       it "adds a custom attribute to the customer" do
         custom_attrubute_hash = {
-          customer_id: "customer_id_001", attribute: attribute
+          customer_uuid: "customer_uuid_001", attribute: attribute
         }
 
         stub_custom_attribute_create_api(custom_attrubute_hash)
@@ -38,7 +38,7 @@ describe Chartmogul::Enrichment::CustomAttribute do
   describe ".update" do
     it "updates customer's custom attributes" do
       custom_attrubute_hash = {
-        customer_id: "customer_id_001", attribute: { channel: "Twitter" }
+        customer_uuid: "customer_uuid_001", attribute: { channel: "Twitter" }
       }
 
       stub_custom_attribute_update_api(custom_attrubute_hash)
@@ -54,7 +54,7 @@ describe Chartmogul::Enrichment::CustomAttribute do
   describe ".delete" do
     it "removes custom attributes from the customer" do
       custom_attrubute_hash = {
-        customer_id: "customer_id_001", attribute: "channel"
+        customer_uuid: "customer_uuid_001", attribute: "channel"
       }
 
       stub_custom_attribute_delete_api(custom_attrubute_hash)

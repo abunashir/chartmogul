@@ -149,10 +149,10 @@ module FakeChartmogulApi
     )
   end
 
-  def stub_customer_tag_create_api(customer_id:, tag:)
+  def stub_customer_tag_create_api(customer_uuid:, tag:)
     stub_api_response(
       :post,
-      ["customers", customer_id, "attributes", "tags"].join("/"),
+      ["customers", customer_uuid, "attributes", "tags"].join("/"),
       data: { tags: [tag] },
       filename: "tag_created",
       status: 200
@@ -169,20 +169,20 @@ module FakeChartmogulApi
     )
   end
 
-  def stub_customer_tag_delete_api(customer_id:, tag:)
+  def stub_customer_tag_delete_api(customer_uuid:, tag:)
     stub_api_response(
       :delete,
-      ["customers", customer_id, "attributes", "tags"].join("/"),
+      ["customers", customer_uuid, "attributes", "tags"].join("/"),
       data: { tags: [tag] },
       filename: "tag_deleted",
       status: 200
     )
   end
 
-  def stub_custom_attribute_create_api(customer_id:, attribute:)
+  def stub_custom_attribute_create_api(customer_uuid:, attribute:)
     stub_api_response(
       :post,
-      ["customers", customer_id, "attributes", "custom"].join("/"),
+      ["customers", customer_uuid, "attributes", "custom"].join("/"),
       data: { custom: [attribute] },
       filename: "custom_attribute_created",
       status: 200
@@ -199,20 +199,20 @@ module FakeChartmogulApi
     )
   end
 
-  def stub_custom_attribute_update_api(customer_id:, attribute:)
+  def stub_custom_attribute_update_api(customer_uuid:, attribute:)
     stub_api_response(
       :put,
-      ["customers", customer_id, "attributes", "custom"].join("/"),
+      ["customers", customer_uuid, "attributes", "custom"].join("/"),
       data: { custom: attribute },
       filename: "custom_attribute_updated",
       status: 200
     )
   end
 
-  def stub_custom_attribute_delete_api(customer_id:, attribute:)
+  def stub_custom_attribute_delete_api(customer_uuid:, attribute:)
     stub_api_response(
       :delete,
-      ["customers", customer_id, "attributes", "custom"].join("/"),
+      ["customers", customer_uuid, "attributes", "custom"].join("/"),
       data: { custom: [attribute] },
       filename: "custom_attribute_deleted",
       status: 200

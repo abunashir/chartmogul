@@ -5,8 +5,8 @@ module Chartmogul
         list_resource(options)
       end
 
-      def find(customer_id)
-        set_customer_id(customer_id)
+      def find(customer_uuid)
+        set_customer_uuid(customer_uuid)
         Chartmogul.get_resource(resource_end_point)
       end
 
@@ -17,7 +17,7 @@ module Chartmogul
       private
 
       def end_point
-        customer_id
+        customer_uuid
       end
 
       def search_end_point

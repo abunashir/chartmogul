@@ -1,6 +1,6 @@
 {
   "id": "customer_id_001",
-  "uuid": "cus_de305d54-75b4-431b-adb2-eb6b9e546012",
+  "uuid": "customer_uuid_001",
   "external_id": "34916129",
   "name": "Adam Smith",
   "email": "bob@examplecompany.com",

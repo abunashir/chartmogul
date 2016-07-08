@@ -1,7 +1,7 @@
 module Chartmogul
   module Enrichment
     class Base < Chartmogul::Base
-      attr_reader :customer_id
+      attr_reader :customer_uuid
 
       private
 
@@ -13,20 +13,20 @@ module Chartmogul
       end
 
       def end_point
-        [customer_id, "attributes", resource_key].compact.join("/")
+        [customer_uuid, "attributes", resource_key].compact.join("/")
       end
 
-      def set_customer_id(customer_id)
-        @customer_id = customer_id
+      def set_customer_uuid(customer_uuid)
+        @customer_uuid = customer_uuid
       end
 
-      def create_customer_metadata(customer_id, email, attribute)
-        set_customer_id(customer_id)
+      def create_customer_metadata(customer_uuid, email, attribute)
+        set_customer_uuid(customer_uuid)
         create_resource(build_attributes_hash(attribute, email))
       end
 
-      def delete_customer_metadata(customer_id, attributes)
-        set_customer_id(customer_id)
+      def delete_customer_metadata(customer_uuid, attributes)
+        set_customer_uuid(customer_uuid)
         delete_resource(resource_key.to_sym => build_array(attributes))
       end
 
