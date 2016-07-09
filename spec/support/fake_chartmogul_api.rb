@@ -228,11 +228,11 @@ module FakeChartmogulApi
     )
   end
 
-  def stub_customer_subscriptions_list_api(customer_uuid)
+  def stub_customer_metric_listing_api(resource_type, customer_uuid)
     stub_api_response(
       :get,
-      ["customers", customer_uuid, "subscriptions"].join("/"),
-      filename: "customer_subscriptions",
+      ["customers", customer_uuid, resource_type].join("/"),
+      filename: ["customer", resource_type].join("_"),
       status: 200
     )
   end

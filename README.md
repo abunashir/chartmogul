@@ -575,6 +575,16 @@ Chartmogul:Metric::Subscription.list(
 )
 ```
 
+#### List Customer Activities
+
+Retrieve a list of activities for a given customer.
+
+```ruby
+Chartmogul::Metric::Activity.list(
+  customer_uuid: "customer_uuid_001", **listing_options
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

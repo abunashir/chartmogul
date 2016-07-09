@@ -1,10 +1,10 @@
 module Chartmogul
   module Metric
-    class Subscription < Customer
+    class Activity < Customer
       private
 
       def end_point
-        "subscriptions"
+        "activities"
       end
     end
   end

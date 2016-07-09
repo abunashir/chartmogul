@@ -5,7 +5,7 @@ describe Chartmogul::Metric::Subscription do
     it "lists the given customer's subscriptions" do
       customer_uuid = "customer_uuid_001"
 
-      stub_customer_subscriptions_list_api(customer_uuid)
+      stub_customer_metric_listing_api("subscriptions", customer_uuid)
       subscriptions = Chartmogul::Metric::Subscription.list(
         customer_uuid: customer_uuid
       )
