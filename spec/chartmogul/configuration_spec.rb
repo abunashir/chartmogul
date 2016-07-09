@@ -38,4 +38,13 @@ describe Chartmogul::Configuration do
       end
     end
   end
+
+  describe ".response_klass" do
+    context "when response_type set to :hash" do
+      it "usages it as response base class" do
+        Chartmogul.configure { |config| config.response_type = :hash }
+        expect(Chartmogul.configuration.response_klass).to eq(Hash)
+      end
+    end
+  end
 end

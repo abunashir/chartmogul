@@ -12,6 +12,7 @@ RSpec.configure do |config|
       Chartmogul.configure do |chartmogul_config|
         chartmogul_config.account_token = "ACCOUNT_TOKEN"
         chartmogul_config.secret_key = "ACCOUNT_SECRET_KEY"
+        chartmogul_config.response_type = :object
       end
     end
   end

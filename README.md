@@ -28,6 +28,10 @@ to set your API keys
 Chartmogul.configure do |config|
   config.account_token = "YOUR_ACCOUNT_TOKEN"
   config.secret_key = "YOUR_SECRET_KEY"
+
+  # Default configurations
+  # config.api_host = "https://api.chartmogul.com/v1"
+  # config.response_type = "object" [alternative: "hash"]
 end
 ```
 
