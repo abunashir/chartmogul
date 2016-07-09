@@ -563,6 +563,18 @@ Chartmogul::Metric.ltv_metrics(
 )
 ```
 
+### Customers
+
+#### List Customer Subscriptions
+
+Retrieve a list of subscriptions for a given customer.
+
+```ruby
+Chartmogul:Metric::Subscription.list(
+  customer_uuid: "customer_uuid_001", **listing_options
+)
+```
+
 ## Development
 
 We are following Sandi Metz's Rules for this application, you can read the

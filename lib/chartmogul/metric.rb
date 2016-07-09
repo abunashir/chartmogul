@@ -1,4 +1,5 @@
 require "chartmogul/metrics/base"
+require "chartmogul/metrics/subscription"
 
 module Chartmogul
   module Metric
