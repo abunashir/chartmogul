@@ -163,7 +163,7 @@ from these invoices. Ref: [Create Invoice API]
 # Array as `invoice: [invoice_attributes, another_invoice_attributes]`
 
 Chartmogul::Import::Invoice.create(
-  uuid: customer_uuid, invoice: invoice_attributes
+  customer_uuid: customer_uuid, invoice: invoice_attributes
 )
 
 # Pay close attention to the construction of this object.
@@ -212,7 +212,7 @@ List the invoices of a specified customer
 
 ```ruby
 Chartmogul::Import::Invoice.list(
-  uuid: customer_uuid, page: 1, per_page: 20
+  customer_uuid: customer_uuid, page: 1, per_page: 20
 )
 ```
 
@@ -230,7 +230,7 @@ Create a new transaction object for an invoice imported using the Import API.
 ```ruby
 Chartmogul::Import::Transaction.create(
   type: "refund",
-  uuid: "invoice_001",
+  invoice_uuid: "invoice_uuid_001",
   result: "successful",
   date: "2015-12-25 18:10:00",
   external_id: "transaction_001"
@@ -251,7 +251,7 @@ are auto-generated from invoice objects created using the Import API.
 
 ```ruby
 Chartmogul::Import::Subscription.list(
-  uuid: "customer_uuid_001", page: 1, per_page: 10
+  customer_uuid: "customer_uuid_001", page: 1, per_page: 10
 )
 ```
 

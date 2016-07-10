@@ -4,7 +4,7 @@ describe Chartmogul::Import::Invoice do
   describe ".list" do
     it "lists existing invoices" do
       customer_uuid = "customer_001"
-      listing_options = { uuid: customer_uuid, page: 1, per_page: 1 }
+      listing_options = { customer_uuid: customer_uuid, page: 1, per_page: 1 }
 
       stub_invoice_listing_api(listing_options)
       invoices = Chartmogul::Import::Invoice.list(listing_options)
@@ -30,7 +30,7 @@ describe Chartmogul::Import::Invoice do
 
       stub_invoice_create_api(customer_uuid, invoices: [invoice_attributes])
       invoices = Chartmogul::Import::Invoice.create(
-        uuid: customer_uuid, invoice: invoice_attributes
+        customer_uuid: customer_uuid, invoice: invoice_attributes
       )
 
       expect(invoices.invoices.first.uuid).not_to be_nil

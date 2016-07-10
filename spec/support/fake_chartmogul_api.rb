@@ -75,29 +75,35 @@ module FakeChartmogulApi
     )
   end
 
-  def stub_invoice_listing_api(uuid:, **listing_options)
+  def stub_invoice_listing_api(customer_uuid:, **listing_options)
     stub_api_response(
       :get,
-      [invoice_end_point(uuid), resource_params(listing_options)].join("?"),
+      [
+        invoice_end_point(customer_uuid),
+        resource_params(listing_options)
+      ].join("?"),
       filename: "invoice_list",
       status: 200
     )
   end
 
-  def stub_transaction_create_api(uuid:, **attributes)
+  def stub_transaction_create_api(invoice_uuid:, **attributes)
     stub_api_response(
       :post,
-      transaction_end_point(uuid),
+      transaction_end_point(invoice_uuid),
       data: attributes,
       filename: "transaction_created",
       status: 201
     )
   end
 
-  def stub_subscription_listing_api(uuid:, **options)
+  def stub_subscription_listing_api(customer_uuid:, **options)
     stub_api_response(
       :get,
-      [subscription_end_point(uuid), resource_params(options)].join("?"),
+      [
+        subscription_end_point(customer_uuid),
+        resource_params(options)
+      ].join("?"),
       filename: "subscription_list",
       status: 200
     )

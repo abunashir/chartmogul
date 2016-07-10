@@ -5,7 +5,7 @@ describe Chartmogul::Import::Transaction do
     it "creates a new transaction for a invoice" do
       transaction_attributes = {
         type: "refund",
-        uuid: "invoice_001",
+        invoice_uuid: "invoice_001",
         result: "successful",
         date: "2015-12-25 18:10:00",
         external_id: "transaction_001"

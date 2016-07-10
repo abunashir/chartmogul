@@ -3,8 +3,8 @@ module Chartmogul
     class Transaction < Base
       attr_reader :invoice_uuid
 
-      def create(uuid:, **transaction_attributes)
-        @invoice_uuid = uuid
+      def create(invoice_uuid:, **transaction_attributes)
+        @invoice_uuid = invoice_uuid
         super(transaction_attributes)
       end
 
