@@ -451,7 +451,7 @@ Retrieve all key metrics, for the specified time period.
 ```ruby
 Chartmogul::Metric.all_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   interval: "month",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
@@ -465,7 +465,7 @@ Retrieve the Monthly Recurring Revenue (MRR), for the specified time period.
 ```ruby
 Chartmogul::Metric.mrr_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   interval: "month",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
@@ -479,7 +479,7 @@ Retrieve the Annualized Run Rate (ARR), for the specified time period.
 ```ruby
 Chartmogul::Metric.arr_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   interval: "month",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
@@ -493,7 +493,7 @@ Retrieve the Average Revenue Per Account (ARPA), for the specified time period
 ```ruby
 Chartmogul::Metric.arpa_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   interval: "month",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
@@ -507,7 +507,7 @@ Retrieve the Average Sale Price (ASP), for the specified time period.
 ```ruby
 Chartmogul::Metric.asp_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   interval: "month",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
@@ -521,7 +521,7 @@ Retrieve the number of active customers, for the specified time period.
 ```ruby
 Chartmogul::Metric.cc_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   interval: "month",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
@@ -535,7 +535,7 @@ Retrieve the Customer Churn Rate, for the specified time period.
 ```ruby
 Chartmogul::Metric.ccr_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
 )
@@ -548,7 +548,7 @@ Retrieve the Net MRR Churn Rate, for the specified time period.
 ```ruby
 Chartmogul::Metric.mrrcr_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
 )
@@ -561,7 +561,7 @@ Retrieves the Customer Lifetime Value (LTV), for the specified time period.
 ```ruby
 Chartmogul::Metric.ltv_metrics(
   start_date: "2015-05-12",
-  end_date: "2015-05-12",
+  end_date: "2016-05-12",
   geo: "US,GB,DE",
   plans: "Bronze Plan"
 )
@@ -574,7 +574,7 @@ Chartmogul::Metric.ltv_metrics(
 Retrieve a list of subscriptions for a given customer.
 
 ```ruby
-Chartmogul:Metric::Subscription.list(
+Chartmogul::Metric::Subscription.list(
   customer_uuid: "customer_uuid_001", **listing_options
 )
 ```
